@@ -1,4 +1,4 @@
-const Animal = require('../models/restaurant.model');
+const Animal = require('../models/animal.model');
 //---------------------------------INPUT---------------------------------
 
 const getAnimals = async(req, res) => {

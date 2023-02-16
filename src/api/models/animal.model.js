@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const animalSchema = mongoose.Schema(
     {
     "especie": {type:'String', required:true},
-    "fecha de nacimiento":  {type:'date', required:true},
+    "fecha de nacimiento":  {type:'Date', required:true},
     "sexo": {type:'String', required:true},
-    "tamaño": {type:'Number', required:true},
+    "tamaño": {type:'string', required:true},
     "peso": {type:'Number', required:true},
     "vacunado": {type:'Boolean', required:true},
     "desparasitado": {type:'Boolean', required:true},

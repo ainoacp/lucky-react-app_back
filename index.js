@@ -2,9 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 
 //---------------------------------ROUTES---------------------------------
-const restaurantRouter = require('./src/api/routes/restaurant.routes');
-const chefRouter = require('./src/api/routes/chef.routes');
-const userRouter = require('./src/api/routes/user.routes');
+const animalRouter = require('./src/api/routes/animal.routes');
+// const userRouter = require('./src/api/routes/user.routes');
 
 
 dotenv.config();
@@ -16,9 +15,8 @@ connect();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use('/restaurants', restaurantRouter);
-app.use('/chefs', chefRouter)
-app.use('/users', userRouter)
+app.use('/animals', animalRouter);
+// app.use('/users', userRouter);
 
 app.listen(5000, () => console.log('listening on port', PORT));
 
