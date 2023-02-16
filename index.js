@@ -20,7 +20,7 @@ app.use('/animals', animalRouter);
 app.use('/users', userRouter);
 app.use('/shelters', shelterRouter);
 
-app.listen(5000, () => console.log('listening on port', PORT));
+app.listen(5001, () => console.log('listening on port', PORT));
 
 //"email": "angelPrueba@gmail.com",
 //"password": "Logeando2023*"
