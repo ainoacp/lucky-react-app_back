@@ -23,7 +23,7 @@ const getAnimals = async(req, res) => {
 const getAnimalById = async(req, res) => {
     try {
         const {id} = req.params;
-        const myAnimal = await Animal.findById(id).populate('chefs');
+        const myAnimal = await Animal.findById(id).populate('Perro Gato Conejo Cobaya Pequeño mamífero Hurón Pez Reptil Anfibio Arácnido o insecto Ave');
         return res.status(200).json(myAnimal)
     } catch (error) {
         return res.status(500).json(error);

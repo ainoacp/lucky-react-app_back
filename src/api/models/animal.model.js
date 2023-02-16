@@ -21,6 +21,9 @@ const animalSchema = mongoose.Schema(
                 "Ave"
             ]
         },
+        "tipo": {
+
+        },
         "fecha de nacimiento": {
             type:'Date', 
             required:true
@@ -87,7 +90,7 @@ const animalSchema = mongoose.Schema(
 );
 
 // 2 - MODELO Movie
-const Animal = mongoose.model('animal',animalSchema);
+const Animal = mongoose.model('Animal', animalSchema);
 
 //---------------------------------OUTPUT---------------------------------
 module.exports = Animal;
