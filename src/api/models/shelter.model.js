@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const userSchema = mongoose.Schema(
+const shelterSchema = mongoose.Schema(
     {
         name: {type: String, required:true},
         email: {type: String, required:true},
@@ -9,7 +9,6 @@ const userSchema = mongoose.Schema(
     {timestamps:true}
 );
 
+const Shelter = mongoose.model('shelter',shelterSchema);
 
-const User = mongoose.model('user',userSchema);
-
-module.exports = User;
+module.exports = Shelter;

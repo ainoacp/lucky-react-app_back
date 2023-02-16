@@ -1,28 +1,28 @@
-const User = require('../models/user.model');
+const Shelter = require('../models/shelter.model');
 const bcrypt = require('bcrypt');
 const {validationEmail, validationPassword} = require('../../validators/validation');
 const {generateSign} = require('../../jwt/jwt');
 
 const register = async(req, res, next) => {
     try {
-        const newUser = new User(req.body);
-        if(!validationEmail(newUser.email)){
+        const newShelter = new Shelter(req.body);
+        if(!validationEmail(newShelter.email)){
             res.status(400).send({code:400, message:'Invalid Email'})
             return next();
         }
-        if(!validationPassword(newUser.password)){
+        if(!validationPassword(newShelter.password)){
             res.status(400).send({code:400, message:'Invalid password'})
             return next();
         }
 
-        const users = await User.find({email:newUser.email})
-        if(users.length > 0){
+        const shelters = await Shelter.find({email:newShelter.email})
+        if(shelters.length > 0){
             res.status(400).send({code:400, message:'Duplicated Email'})
             return next();
         }
-        newUser.password = bcrypt.hashSync(newUser.password, 10);   
-        const createdUser = await newUser.save();
-        return res.status(200).json(createdUser);
+        newShelter.password = bcrypt.hashSync(newShelter.password, 10);
+        const createdShelter = await newShelter.save();
+        return res.status(200).json(createdShelter);
     } catch (error) {
         return res.status(500).json(error);
     }
@@ -31,10 +31,10 @@ const register = async(req, res, next) => {
 const login = async(req, res, next) => {
     // console.log(req.body);
     try {
-        const myUser = await User.findOne({email: req.body.email});
-        if(bcrypt.compareSync(req.body.password, myUser.password)){
-            const token = generateSign(myUser._id, myUser.email)
-            return res.status(200).json({myUser, token});
+        const myShelter = await Shelter.findOne({email: req.body.email});
+        if(bcrypt.compareSync(req.body.password, myShelter.password)){
+            const token = generateSign(myShelter._id, myShelter.email)
+            return res.status(200).json({myShelter, token});
         }else{
             res.status(400).send({code:400, message:'Password Error'})
             return next()
@@ -43,6 +43,5 @@ const login = async(req, res, next) => {
         return res.status(500).json(error);
     }
 }
-
 
 module.exports = {register, login}
