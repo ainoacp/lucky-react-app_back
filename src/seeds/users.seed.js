@@ -9,26 +9,35 @@ const users = [
     "name": "Ángel",
     "email": "angel.pozo.miranda@gmail.com",
     "password": "1234",
+    "role":"user"
 },
 {
     "name": "Juanma",
     "email": "juanm.rodpar@gmail.com",
     "password": "1234",
+    "role":"user"
+
 },
 {
     "name": "Jonay",
     "email": "ramirezjonay@gmail.com",
     "password": "1234",
+    "role":"user"
+
 },
 {
     "name": "Jose",
     "email": "joseangelflr@gmail.com",
     "password": "1234",
+    "role":"user"
+
 },
 {
     "name": "Ainoa",
     "email": "ainhoacp_94@msn.com",
     "password": "1234",
+    "role":"shelter"
+
 }
 ];
 

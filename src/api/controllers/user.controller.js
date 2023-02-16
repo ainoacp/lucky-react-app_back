@@ -33,7 +33,9 @@ const login = async(req, res, next) => {
     try {
         const myUser = await User.findOne({email: req.body.email});
         if(bcrypt.compareSync(req.body.password, myUser.password)){
+            console.log('mi usuario',myUser);
             const token = generateSign(myUser._id, myUser.email)
+            console.log('este es el token', myUser.email);
             return res.status(200).json({myUser, token});
         }else{
             res.status(400).send({code:400, message:'Password Error'})
