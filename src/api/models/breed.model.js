@@ -48,7 +48,7 @@ const breedSchema = new Schema(
                     "San bernardo",
                     "Dálmata",
                     "Otro"
-                ]
+                ], default: "Otro"
             },
         ], // solo pueden ser los que tengan role perro
         "Gato": [
@@ -88,7 +88,7 @@ const breedSchema = new Schema(
                     "Tiffanie",
                     "Van turco",
                     "Otro"
-                ]
+                ], default: "Otro"
             }
         ],
         "Conejo": [
@@ -104,7 +104,7 @@ const breedSchema = new Schema(
                     "Gigante de Flandes",
                     "Tan",
                     "Otro"
-                ]
+                ], default: "Otro"
             }
         ], 
         "Cobaya": [
@@ -132,7 +132,7 @@ const breedSchema = new Schema(
                     "Jerbo",
                     "Hámster",
                     "Otro"
-                ]
+                ], default: "Otro"
             }
         ],
         "Hurón": [
@@ -144,7 +144,7 @@ const breedSchema = new Schema(
                     "Angora",
                     "Bull",
                     "Otro"
-                ] 
+                ], default: "Otro" 
             }
         ],
         "Pez": [
@@ -163,7 +163,7 @@ const breedSchema = new Schema(
                     "Pez cíclido convicto",
                     "Pez cebra",
                     "Otro"
-                ]
+                ], default: "Otro"
             }
         ],
         "Reptil": [
@@ -176,7 +176,7 @@ const breedSchema = new Schema(
                     "Iguana",
                     "Serpiente",
                     "Otro"
-                ]
+                ], default: "Otro"
             }
         ],
         "Anfibio": [
@@ -188,7 +188,7 @@ const breedSchema = new Schema(
                     "Tritón",
                     "Ajolote",
                     "Otro"
-                ]
+                ], default: "Otro"
             }
         ],
         "Arácnido o insecto": [
@@ -200,26 +200,26 @@ const breedSchema = new Schema(
                     "Mantis",
                     "Ciempies",
                     "Otro"
-                ]
+                ], default: "Otro"
             }
         ],
         "Ave": [
             {
                 type: Schema.Types.ObjectId, ref: 'Animal',
                 enum: [
-                    "Periquitos",
-                    "Canarios",
-                    "Diamantes",
-                    "Jilgueros",
-                    "Agapornis",
-                    "Ninfas",
-                    "Cotorras",
-                    "Cacatúas",
+                    "Periquito",
+                    "Canario",
+                    "Diamante",
+                    "Jilguero",
+                    "Agaporni",
+                    "Ninfa",
+                    "Cotorra",
+                    "Cacatúa",
                     "Yaco",
                     "Guacamayo",
                     "Eclectus",
                     "Otro"
-                ]
+                ], default: "Otro"
             }
         ],
     },{
