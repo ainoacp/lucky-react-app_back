@@ -23,7 +23,7 @@ const getAnimals = async(req, res) => {
 const getAnimalById = async(req, res) => {
     try {
         const {id} = req.params;
-        const myAnimal = await Animal.findById(id).populate('Perro Gato Conejo Cobaya Pequeño mamífero Hurón Pez Reptil Anfibio Arácnido o insecto Ave');
+        const myAnimal = await Animal.findById(id);
         return res.status(200).json(myAnimal)
     } catch (error) {
         return res.status(500).json(error);
@@ -33,8 +33,8 @@ const getAnimalById = async(req, res) => {
 
 const postAnimal = async (req,res) => {
     try {
-        const {name,city,foundationYear,animalType,chefs} = req.body;
-        const newAnimal = new Animal({name,city,foundationYear,animalType,chefs});
+        // const {name,city,foundationYear,animalType,chefs} = req.body;
+        const newAnimal = new Animal(req.body);
         const inserted = await newAnimal.save();
         res.status(201).json(inserted)
     } catch (error) {

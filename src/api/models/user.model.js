@@ -1,18 +1,16 @@
 const mongoose = require('mongoose');
-//---------------------------------INPUT---------------------------------
 
-// 1 - SCHEMA
 const userSchema = mongoose.Schema(
     {
         name: {type: String, required:true},
         email: {type: String, required:true},
-        password: {type: String, required:true}
+        password: {type: String, required:true},
+        role:{type:String}
     },
     {timestamps:true}
 );
 
-// 2 - MODELO Movie
+
 const User = mongoose.model('user',userSchema);
 
-//---------------------------------OUTPUT---------------------------------
 module.exports = User;

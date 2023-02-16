@@ -4,6 +4,7 @@ const isAuth = (req, res, next) => {
   try {
     // console.log(req.headers);
     const authorization = req.headers.authorization;
+    console.log('autorizado',authorization);
     if (!authorization) {
       return res.status(401).json({ message: "Unauthorized" });
     }

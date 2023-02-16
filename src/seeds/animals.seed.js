@@ -7,6 +7,7 @@ dotenv.config();
 const animals = [
 {
     "especie": "Ave",
+    "tipo":"",
     "fecha de nacimiento": "2020-01-23",
     "sexo": "Hembra",
     "tamaño": "Pequeño",
@@ -23,6 +24,7 @@ const animals = [
 },
 {
     "especie": "Ave",
+    "tipo":"",
     "fecha de nacimiento": "2020-03-07",
     "sexo": "Macho",
     "tamaño": "Pequeño",
@@ -39,6 +41,7 @@ const animals = [
 },
 {
     "especie": "Perro",
+    "tipo":"",
     "fecha de nacimiento": "2017-08-27",
     "sexo": "Macho",
     "tamaño": "Grande",
@@ -55,6 +58,7 @@ const animals = [
 },
 {
     "especie": "Gato",
+    "tipo":"",
     "fecha de nacimiento": "1994-10-11",
     "sexo": "Hembra",
     "tamaño": "Mediano",
