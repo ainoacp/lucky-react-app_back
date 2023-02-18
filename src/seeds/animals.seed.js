@@ -6,7 +6,10 @@ dotenv.config();
 
 const animals = [
 {
-    "especie": "Ave",
+    "especie":{
+        "tipo": "ave",
+        "imagen": ""
+    }, 
     "fecha de nacimiento": "2020-01-23",
     "sexo": "Hembra",
     "tamaño": "Pequeño",

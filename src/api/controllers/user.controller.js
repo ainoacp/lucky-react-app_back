@@ -3,6 +3,18 @@ const bcrypt = require('bcrypt');
 const {validationEmail, validationPassword} = require('../../validators/validation');
 const {generateSign} = require('../../jwt/jwt');
 
+
+const getUsers = async(req, res) => {
+    try {        
+        const allUsers = await User.find();
+        res.status(200).json(allUsers);
+        
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+};
+
+
 const register = async(req, res, next) => {
     try {
         const newUser = new User(req.body);
@@ -45,4 +57,4 @@ const login = async(req, res, next) => {
 }
 
 
-module.exports = {register, login}
+module.exports = {register, login, getUsers}
