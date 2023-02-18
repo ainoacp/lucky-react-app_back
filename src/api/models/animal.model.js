@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // 1 - SCHEMA
 const animalSchema = mongoose.Schema(
     {
-        "especie": {
+        "especie": [{
             type:'String', 
             required:true, 
             enum:[ 
@@ -20,12 +20,17 @@ const animalSchema = mongoose.Schema(
                 "Arácnido o insecto", 
                 "Ave"
             ]
-        },
+        },{ type: 'string'}
+    ],
         "tipo": {
-
+         
         },
-        "fecha de nacimiento": {
-            type:'Date', 
+        "imagenes":{
+            type:'Array',
+            required: false
+        },
+        "fechaDeNacimiento": {
+            type:'String', 
             required:true
         },
         "sexo": {
