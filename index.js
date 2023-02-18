@@ -1,4 +1,4 @@
-const cors = require('cors')
+const cors = require('cors');
 const express = require('express');
 const dotenv = require('dotenv');
 
@@ -15,6 +15,7 @@ const app = express();
 connect();
 
 app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     res.header('Access-Control-Allow-Method', 'POST, GET, PUT, DELETE, PATCH');  //definimos que metodos permitimos en nuestra API
     res.header('Access-Control-Allow-Credentials', 'true'); //podemos recibir una conexion con credenciales
     res.header('Access-Control-Allow-Headers', 'Content-Type'); //tipos de cabeceras que permitimos
@@ -23,7 +24,8 @@ app.use((req, res, next) => {
 
 app.use(cors({
     origin: ['http://localhost:3000', 'http://localhost:4200', 'http://RUTADEMIFRONT.com'],
-    credentials: true
+    credentials: true,
+    optionSuccessStatus: 200
 }))
 
 app.use(express.json());
@@ -33,7 +35,7 @@ app.use('/animals', animalRouter);
 app.use('/users', userRouter);
 app.use('/shelters', shelterRouter);
 
-app.listen(5000, () => console.log('listening on port', PORT));
+app.listen(PORT, () => console.log('listening on port', PORT));
 
 //"email": "angelPrueba@gmail.com",
 //"password": "Logeando2023*"

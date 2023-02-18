@@ -10,7 +10,7 @@ const animalSchema = mongoose.Schema(
             enum:[ 
                 "Perro", 
                 "Gato", 
-                "Conejo", 
+                "Conejo",
                 "Cobaya", 
                 "Pequeño mamífero", 
                 "Hurón", 
