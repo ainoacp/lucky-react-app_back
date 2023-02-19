@@ -9,11 +9,19 @@ const users = [
     "name": "Ángel",
     "email": "angel.pozo.miranda@gmail.com",
     "password": "1234",
+    "pets": [
+        '63ee105efc751dbbea545343',
+        '63ee105efc751dbbea545345',
+        '63ee105efc751dbbea545343'
+    ]
 },
 {
     "name": "Juanma",
     "email": "juanm.rodpar@gmail.com",
     "password": "1234",
+    "pets": [
+        '63ee7b3de610618ae4feb6d7',
+    ]
 },
 {
     "name": "Jonay",
