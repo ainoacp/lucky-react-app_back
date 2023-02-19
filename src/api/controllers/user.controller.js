@@ -3,18 +3,6 @@ const bcrypt = require('bcrypt');
 const {validationEmail, validationPassword} = require('../../validators/validation');
 const {generateSign} = require('../../jwt/jwt');
 
-
-const getUsers = async(req, res) => {
-    try {        
-        const allUsers = await User.find().populate("pets");
-        res.status(200).json(allUsers);
-        
-    } catch (error) {
-        return res.status(500).json(error);
-    }
-};
-
-
 const register = async(req, res, next) => {
     try {
         const newUser = new User(req.body);
@@ -56,5 +44,33 @@ const login = async(req, res, next) => {
     }
 }
 
+const getUsers = async (req, res) => {
+    try {
+        const users = await User.find();
+        return res.status(200).json(users);
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+};
 
-module.exports = {register, login, getUsers}
+const getUserById = async(req, res) => {
+    try {
+        const {id} = req.params;
+        const myUser = await User.findById(id);
+        if (myUser) {
+            return res.status(200).json(myUser)
+        } else {
+            return res.status(404).json('Any user with that id');
+        }
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+};
+
+
+module.exports = {
+    register, 
+    login, 
+    getUsers, 
+    getUserById
+}
