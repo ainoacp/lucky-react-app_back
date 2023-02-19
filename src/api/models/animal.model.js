@@ -90,6 +90,30 @@ const animalSchema = mongoose.Schema(
             type:'String', 
             required:true
         },
+        "personalidad":{
+            type:'Array',
+            required: true
+        },
+        "historia":{
+            type:'String',
+            required: false
+        },
+        "aSaber":{
+            type:'String',
+            required: false
+        },
+        requisitosAdopcion:{
+            type:'String',
+            required: false
+        },
+        tasaAdopcion:{
+            type:'Number',
+            required: false
+        },
+        seEnvia:{
+            type:'String',
+            required: false
+        }
     },
     {timestamps:true}
 );
