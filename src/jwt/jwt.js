@@ -8,4 +8,7 @@ const verifySign = (token) => {
     return jwt.verify(token, process.env.JWT_KEY);
 }
 
-module.exports ={generateSign, verifySign};
+module.exports = {
+    generateSign, 
+    verifySign
+};
