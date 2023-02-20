@@ -22,9 +22,6 @@ const animalSchema = mongoose.Schema(
             ]
         },{ type: 'string'}
     ],
-        "tipo": {
-         
-        },
         "imagenes":[{
             type:'String',
             required: false
