@@ -5,7 +5,7 @@ const getForm = async(req, res) => {
     try {        
         const allForms = await Forms.find();
        
-        res.status(200).json(allForm);
+        res.status(200).json(allForms);
         
     } catch (error) {
         return res.status(500).json(error);
@@ -15,7 +15,7 @@ const getForm = async(req, res) => {
 const getFormById = async(req, res) => {
     try {
         const {id} = req.params;
-        const myform = await forms.findById(id);
+        const myform = await Forms.findById(id);
         return res.status(200).json(myform)
     } catch (error) {
         return res.status(500).json(error);
@@ -26,7 +26,10 @@ const getFormById = async(req, res) => {
 const postForm = async (req,res) => {
     try {
         const newForm = req.body;
-        const newforms = new forms(newForm);
+        console.log("new form",newForm);
+        const newforms = new Forms(newForm);
+        console.log("new formos",newforms);
+        
         const inserted = await newforms.save();
         res.status(201).json(inserted)
     } catch (error) {
@@ -38,9 +41,9 @@ const postForm = async (req,res) => {
 const putForm = async(req, res) => {
     try {
         const {id} = req.params;
-        const putNewForm = new Form(req.body);
+        const putNewForm = new Forms(req.body);
         putNewForm._id = id;
-        const updatedForm = await Form.findByIdAndUpdate(id, putNewForm, {new: true});
+        const updatedForm = await Forms.findByIdAndUpdate(id, putNewForm, {new: true});
         return res.status(200).json(updatedForm);
     } catch (error) {
         return res.status(500).json(error);
@@ -49,7 +52,7 @@ const putForm = async(req, res) => {
 const deleteForm = async(req, res) => {
     try {
         const {id} = req.params;
-        const deletedForm = await Form.findByIdAndDelete(id);
+        const deletedForm = await Forms.findByIdAndDelete(id);
         return res.status(200).json(deletedForm);
     } catch (error) {
         return res.status(500).json(error);

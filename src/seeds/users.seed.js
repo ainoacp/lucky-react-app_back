@@ -21,6 +21,9 @@ const users = [
     "password": "1234",
     "pets": [
         '63ee7b3de610618ae4feb6d7',
+    ],
+    "info":[
+'63f35102184bd6a7a286cae9',
     ]
 },
 {
