@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // 1 - SCHEMA
 const animalSchema = mongoose.Schema(
-    {
+    [{
         "especie": [{
             type:'String', 
             required:true, 
@@ -114,7 +114,7 @@ const animalSchema = mongoose.Schema(
             type:'String',
             required: false
         }
-    },
+    }],
     {timestamps:true}
 );
 
