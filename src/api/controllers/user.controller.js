@@ -31,7 +31,7 @@ const register = async(req, res, next) => {
 const login = async(req, res, next) => {
     // console.log(req.body);
     try {
-        const myUser = await User.findOne({email: req.body.email}).populate("pets");;
+        const myUser = await User.findOne({email: req.body.email}).populate("pets favPets");
         if(bcrypt.compareSync(req.body.password, myUser.password)){
             const token = generateSign(myUser._id, myUser.email)
             return res.status(200).json({myUser, token});
@@ -44,35 +44,48 @@ const login = async(req, res, next) => {
     }
 }
 
-const getUsers = async (req, res) => {
+// const getUsers = async (req, res) => {
+//     try {
+//         const myUser = await User.findOne({email: req.body.email}).populate("pets favPets");;
+//         if(bcrypt.compareSync(req.body.password, myUser.password)){
+//             return res.status(200).json({myUser, token});
+//         }else{
+//             res.status(400).send({code:400, message:'Password Error'})
+//             return next()
+//         }
+//     } catch (error) {
+//         return res.status(500).json(error);
+//     }
+// };
+
+const checkSession = (req, res, next) => {
+    console.log(req.headers.authorization)
     try {
-        const users = await User.find();
-        return res.status(200).json(users);
+        return res.status(200).json(req.user)
     } catch (error) {
-        return res.status(500).json(error);
+        return res.status(500).json(error) ;
     }
 };
 
-//hacer un checksession
-
-const getUserById = async(req, res) => {
-    try {
-        const {id} = req.params;
-        const myUser = await User.findById(id);
-        if (myUser) {
-            return res.status(200).json(myUser)
-        } else {
-            return res.status(404).json('Any user with that id');
-        }
-    } catch (error) {
-        return res.status(500).json(error);
-    }
-};
+// const getUserById = async(req, res) => {
+//     try {
+//         const {id} = req.params;
+//         const myUser = await User.findById(id);
+//         if (myUser) {
+//             return res.status(200).json(myUser)
+//         } else {
+//             return res.status(404).json('Any user with that id');
+//         }
+//     } catch (error) {
+//         return res.status(500).json(error);
+//     }
+// };
 
 
 module.exports = {
     register, 
-    login, 
-    getUsers, 
-    getUserById
+    login,
+    checkSession, 
+    // getUsers, 
+    // getUserById
 }
