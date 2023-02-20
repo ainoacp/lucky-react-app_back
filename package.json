@@ -8,6 +8,7 @@
     "dev": "nodemon index.js",
     "animal-seed": "node ./src/seeds/animals.seed.js",
     "user-seed": "node ./src/seeds/users.seed.js",
+    "form-seed": "node ./src/seeds/form.seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

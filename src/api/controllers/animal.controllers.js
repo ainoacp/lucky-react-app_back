@@ -4,15 +4,7 @@ const Animal = require('../models/animal.model');
 const getAnimals = async(req, res) => {
     try {        
         const allAnimals = await Animal.find();
-        // const allAnimalsMap = allAnimals.map((item)=> {return {
-        //     _id: item._id,
-        //     name: item.name,
-        //     city: item.city,
-        //     foundationYear: item.foundationYear,
-        //     restaurantType: item.restaurantType,
-        //     chefs: item.chefs
-        // }});
-        // const allAnimalsMap = allAnimals.map(({name,city})=> ({name,city}));
+       
         res.status(200).json(allAnimals);
         
     } catch (error) {
