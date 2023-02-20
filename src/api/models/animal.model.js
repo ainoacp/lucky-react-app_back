@@ -25,10 +25,10 @@ const animalSchema = mongoose.Schema(
         "tipo": {
          
         },
-        "imagenes":{
-            type:'Array',
+        "imagenes":[{
+            type:'String',
             required: false
-        },
+        }],
         "fechaDeNacimiento": {
             type:'String', 
             required:true
@@ -90,10 +90,10 @@ const animalSchema = mongoose.Schema(
             type:'String', 
             required:true
         },
-        "personalidad":{
-            type:'Array',
+        "personalidad":[{
+            type:'String',
             required: true
-        },
+        }],
         "historia":{
             type:'String',
             required: false
