@@ -7,5 +7,6 @@ router.post('/register', register);
 router.post('/login', login);
 router.get ('/', getUsers);
 router.get('/:id', getUserById)
+// router.post('/') checksession
 
 module.exports = router;

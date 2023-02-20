@@ -31,7 +31,7 @@ const register = async(req, res, next) => {
 const login = async(req, res, next) => {
     // console.log(req.body);
     try {
-        const myUser = await User.findOne({email: req.body.email});
+        const myUser = await User.findOne({email: req.body.email}).populate("pets");;
         if(bcrypt.compareSync(req.body.password, myUser.password)){
             const token = generateSign(myUser._id, myUser.email)
             return res.status(200).json({myUser, token});
@@ -52,6 +52,8 @@ const getUsers = async (req, res) => {
         return res.status(500).json(error);
     }
 };
+
+//hacer un checksession
 
 const getUserById = async(req, res) => {
     try {
