@@ -58,7 +58,7 @@ const login = async(req, res, next) => {
 //     }
 // };
 
-const checkSession = (req, res, next) => {
+const checkSession =(req, res, next) => {
     console.log(req.headers.authorization)
     try {
         return res.status(200).json(req.user)

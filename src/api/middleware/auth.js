@@ -13,7 +13,7 @@ const isAuth = async (req, res, next) => {
     }
     try {
       var tokenVerified = verifySign(token);
-      const userLogged = await User.findById(tokenVerified.id);
+      const userLogged = await User.findById(tokenVerified.id).populate("pets");
       userLogged.password = null;
       req.user = userLogged;
       next() 
