@@ -42,6 +42,15 @@ const animalSchema = mongoose.Schema(
             type:'string', 
             required:true,
             enum: [
+                "Cachorro",
+                "Jóven",
+                "Adulto"
+            ]
+        },
+        "edad": {
+            type:'string', 
+            required:true,
+            enum: [
                 "Pequeño",
                 "Mediano",
                 "Grande"
