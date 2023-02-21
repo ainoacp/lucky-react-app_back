@@ -42,18 +42,18 @@ const animalSchema = mongoose.Schema(
             type:'string', 
             required:true,
             enum: [
-                "Cachorro",
-                "Jóven",
-                "Adulto"
+                "Pequeño",
+                "Mediano",
+                "Grande"
             ]
         },
         "edad": {
             type:'string', 
             required:true,
             enum: [
-                "Pequeño",
-                "Mediano",
-                "Grande"
+                "Cachorro",
+                "Jóven",
+                "Adulto"
             ]
         },
         "peso": {
@@ -119,7 +119,16 @@ const animalSchema = mongoose.Schema(
         seEnvia:{
             type:'String',
             required: false
-        }
+        },
+        "adoptionState": {
+            type:'string', 
+            required:true,
+            enum: [
+                "Aceptado",
+                "En proceso",
+                "Denegado"
+            ]
+        },
     },
     {timestamps:true}
 );

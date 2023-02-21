@@ -31,7 +31,7 @@ const register = async(req, res, next) => {
 const login = async(req, res, next) => {
     // console.log(req.body);
     try {
-        const myUser = await User.findOne({email: req.body.email}).populate("pets favPets");
+        const myUser = await User.findOne({email: req.body.email}).populate("pets favPets inProcessPets");
         if(bcrypt.compareSync(req.body.password, myUser.password)){
             const token = generateSign(myUser._id, myUser.email)
             return res.status(200).json({myUser, token});
@@ -86,7 +86,7 @@ const postFav = async(req, res, next) => {
         const user = new User (req.body)
 
         console.log("new fav", user);
-        const updatedUser = await User.findByIdAndUpdate(user._id, user, {new: true}).populate("pets favPets");
+        const updatedUser = await User.findByIdAndUpdate(user._id, user, {new: true}).populate("pets favPets inProcessPets");
         console.log("new favorites", user);
         
         res.status(201).json(updatedUser)
@@ -95,11 +95,27 @@ const postFav = async(req, res, next) => {
     }
 }
 
+const postAdoption = async(req, res, next) => {
+    try {
+        const user = new User (req.body)
+
+        console.log("new adoption", user);
+        const updatedUser = await User.findByIdAndUpdate(user._id, user, {new: true}).populate("pets favPets inProcessPets");
+        console.log("new favorites", user);
+        
+        res.status(201).json(updatedUser)
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
+
+
 module.exports = {
     register, 
     login,
     checkSession, 
     postFav,
+    postAdoption,
     // getUsers, 
     getUserById
 }
