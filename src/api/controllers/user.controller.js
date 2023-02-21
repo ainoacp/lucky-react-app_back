@@ -67,25 +67,39 @@ const checkSession =(req, res, next) => {
     }
 };
 
-// const getUserById = async(req, res) => {
-//     try {
-//         const {id} = req.params;
-//         const myUser = await User.findById(id);
-//         if (myUser) {
-//             return res.status(200).json(myUser)
-//         } else {
-//             return res.status(404).json('Any user with that id');
-//         }
-//     } catch (error) {
-//         return res.status(500).json(error);
-//     }
-// };
+const getUserById = async(req, res) => {
+    try {
+        const {id} = req.params;
+        const myUser = await User.findById(id);
+        if (myUser) {
+            return res.status(200).json(myUser)
+        } else {
+            return res.status(404).json('Any user with that id');
+        }
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+};
 
+const postFav = async(req, res, next) => {
+    try {
+        const user = new User (req.body)
+
+        console.log("new fav", user);
+        const updatedUser = await User.findByIdAndUpdate(user._id, user, {new: true}).populate("pets favPets");
+        console.log("new favorites", user);
+        
+        res.status(201).json(updatedUser)
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
 
 module.exports = {
     register, 
     login,
     checkSession, 
+    postFav,
     // getUsers, 
-    // getUserById
+    getUserById
 }
