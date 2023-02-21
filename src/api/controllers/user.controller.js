@@ -67,6 +67,19 @@ const checkSession =(req, res, next) => {
     }
 };
 
+const postFav = async(req, res, next) => {
+    try {
+        const newFav = req.body;
+        console.log("new fav", newFav);
+        const newFavs = new User.favPets(newFav);
+        console.log("new favorites", newFavs);
+
+        const inserted = await newFavs.save();
+        res.status(201).json(inserted)
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
 // const getUserById = async(req, res) => {
 //     try {
 //         const {id} = req.params;
@@ -85,7 +98,8 @@ const checkSession =(req, res, next) => {
 module.exports = {
     register, 
     login,
-    checkSession, 
+    checkSession,
+    postFav 
     // getUsers, 
     // getUserById
 }
