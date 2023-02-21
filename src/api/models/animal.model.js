@@ -21,7 +21,11 @@ const animalSchema = mongoose.Schema(
                 "Ave"
             ]
         },{ type: 'string'}
-    ],
+        ], 
+        "images":{
+        type:'string',
+        required: true
+        },
         "imagenes":[{
             type:'String',
             required: false

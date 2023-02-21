@@ -109,6 +109,7 @@ const animals = [
     "identificado": true,
     "microchip":false,
     "nombre": "Saphira" ,
+    "images":"https://t2.ea.ltmcdn.com/es/razas/9/7/1/siames_179_0_orig.jpg",
     "imagenes":[
         "https://t2.ea.ltmcdn.com/es/razas/9/7/1/siames_179_0_orig.jpg",
         "https://static.miscota.com/consejos/wp-content/uploads/2016/11/shutterstock_87157474.jpg",
@@ -121,8 +122,9 @@ const animals = [
     "aSaber": "Es una gata muy juguetona que necesita atencion, correr y mimos por las noches, si no, te pisara la cabeza para despertarte.",
     "requisitosAdopcion":"Ser una persona activa y que no le importe recibir atencion",
     "tasaAdopcion": 10,
-    "seEnvia": "A Madrid solo"
-}
+    "seEnvia": "A Madrid solo",
+    "adoptionState": "En proceso"
+}   
 ];
 
 mongoose.set("strictQuery", false);
