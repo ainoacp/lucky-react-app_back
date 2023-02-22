@@ -3,6 +3,16 @@ const bcrypt = require('bcrypt');
 const {validationEmail, validationPassword} = require('../../validators/validation');
 const {generateSign} = require('../../jwt/jwt');
 
+const getShelters = async(req, res) => {
+    try {        
+        const allUsers = await Shelter.find().populate("animals");
+        res.status(200).json(allShelters);
+        
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+};
+
 const register = async(req, res, next) => {
     try {
         const newShelter = new Shelter(req.body);
@@ -44,4 +54,8 @@ const login = async(req, res, next) => {
     }
 }
 
-module.exports = {register, login}
+module.exports = {
+    register, 
+    login, 
+    getShelters
+}

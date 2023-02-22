@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // 1 - SCHEMA
 const animalSchema = mongoose.Schema(
     {
-        "especie": {
+        "especie": [{
             type:'String', 
             required:true, 
             enum:[ 
@@ -20,12 +20,18 @@ const animalSchema = mongoose.Schema(
                 "Arácnido o insecto", 
                 "Ave"
             ]
+        },{ type: 'string'}
+        ], 
+        "image":{
+        type:'string',
+        required: true
         },
-        "tipo": {
-
-        },
-        "fecha de nacimiento": {
-            type:'Date', 
+        "imagenes":[{
+            type:'String',
+            required: false
+        }],
+        "fechaDeNacimiento": {
+            type:'String', 
             required:true
         },
         "sexo": {
@@ -43,6 +49,15 @@ const animalSchema = mongoose.Schema(
                 "Pequeño",
                 "Mediano",
                 "Grande"
+            ]
+        },
+        "edad": {
+            type:'string', 
+            required:true,
+            enum: [
+                "Cachorro",
+                "Jóven",
+                "Adulto"
             ]
         },
         "peso": {
@@ -84,6 +99,39 @@ const animalSchema = mongoose.Schema(
         "ciudad": {
             type:'String', 
             required:true
+        },
+        "personalidad":[{
+            type:'String',
+            required: true
+        }],
+        "historia":{
+            type:'String',
+            required: false
+        },
+        "aSaber":{
+            type:'String',
+            required: false
+        },
+        requisitosAdopcion:{
+            type:'String',
+            required: false
+        },
+        tasaAdopcion:{
+            type:'Number',
+            required: false
+        },
+        seEnvia:{
+            type:'String',
+            required: false
+        },
+        "adoptionState": {
+            type:'string', 
+            required:true,
+            enum: [
+                "Aceptado",
+                "En proceso",
+                "Denegado"
+            ]
         },
     },
     {timestamps:true}
