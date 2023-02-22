@@ -22,7 +22,7 @@ const animalSchema = mongoose.Schema(
             ]
         },{ type: 'string'}
         ], 
-        "images":{
+        "image":{
         type:'string',
         required: true
         },
