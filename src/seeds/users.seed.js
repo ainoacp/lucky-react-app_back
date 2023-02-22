@@ -13,7 +13,7 @@ const users = [
         '63ee105efc751dbbea545343',
         '63ee105efc751dbbea545345',
         '63ee105efc751dbbea545343'
-    ]
+    ],
     "role":"user"
 },
 {
@@ -25,7 +25,7 @@ const users = [
     ],
     "info":[
     '63f35102184bd6a7a286cae9',
-    ]
+    ],
     "role":"user"
 },
 {
