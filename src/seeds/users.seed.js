@@ -14,6 +14,7 @@ const users = [
         '63ee105efc751dbbea545345',
         '63ee105efc751dbbea545343'
     ]
+    "role":"user"
 },
 {
     "name": "Juanma",
@@ -23,23 +24,30 @@ const users = [
         '63ee7b3de610618ae4feb6d7',
     ],
     "info":[
-'63f35102184bd6a7a286cae9',
+    '63f35102184bd6a7a286cae9',
     ]
+    "role":"user"
 },
 {
     "name": "Jonay",
     "email": "ramirezjonay@gmail.com",
     "password": "1234",
+    "role":"user"
+
 },
 {
     "name": "Jose",
     "email": "joseangelflr@gmail.com",
     "password": "1234",
+    "role":"user"
+
 },
 {
     "name": "Ainoa",
     "email": "ainhoacp_94@msn.com",
     "password": "1234",
+    "role":"shelter"
+
 }
 ];
 

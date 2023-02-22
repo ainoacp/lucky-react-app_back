@@ -25,8 +25,8 @@ const getAnimalById = async(req, res) => {
 
 const postAnimal = async (req,res) => {
     try {
-        const {name,city,foundationYear,animalType,chefs} = req.body;
-        const newAnimal = new Animal({name,city,foundationYear,animalType,chefs});
+        // const {name,city,foundationYear,animalType,chefs} = req.body;
+        const newAnimal = new Animal(req.body);
         const inserted = await newAnimal.save();
         res.status(201).json(inserted)
     } catch (error) {

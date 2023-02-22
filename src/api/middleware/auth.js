@@ -4,6 +4,7 @@ const User = require("../models/user.model");
 const isAuth = async (req, res, next) => {
     // console.log(req.headers);
     const authorization = req.headers.authorization;
+    console.log('autorizado',authorization);
     if (!authorization) {
       return res.status(401).json({ message: "Unauthorized" });
     }
